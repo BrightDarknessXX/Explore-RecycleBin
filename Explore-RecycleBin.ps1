@@ -75,8 +75,6 @@ do {
 
     $choice = Read-Host "Option"
 
-    Clear-Host
-
     switch ($choice) {
         '1' {
             Get-LogicalDiskRecycleBin
