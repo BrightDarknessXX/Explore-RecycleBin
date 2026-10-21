@@ -13,7 +13,7 @@ After startup, it presents a small interactive menu with these options:
    - Reports each disk's `$RECYCLE.BIN` directory if it exists
 
 2. List Recycle Bin contents
-   - Lets you enter one or more drive letters (for example: `C D`)
+   - Lets you enter one or more drive letters (for example: `C: D:`)
    - Optionally lists all drives if you leave it blank
    - Shows each file's name, path, and size in MB
 
