@@ -1,11 +1,32 @@
 # Explore Recycle Bin
 
-An interactive PowerShell script for finding, inspecting, and removing Windows `$RECYCLE.BIN` directories on logical disks.
+This script helps you inspect, review, and clean up the Windows Recycle Bin folders on local drives.
 
-## Requirements
+## What it does
 
-- Windows PowerShell or PowerShell 7 on Windows.
-- Administrator privileges. If the script is not elevated, it requests elevation through UAC and relaunches itself.
+The script checks whether it is running with administrator privileges. If not, it asks for elevation (UAC) and relaunches itself as an elevated process so it can access the system-level `$RECYCLE.BIN` folders.
+
+After startup, it presents a small interactive menu with these options:
+
+1. Find and list Recycle Bin folders
+   - Scans all local logical disks
+   - Reports each disk's `$RECYCLE.BIN` directory if it exists
+
+2. List Recycle Bin contents
+   - Lets you enter one or more drive letters (for example: `C: D:`)
+   - Optionally lists all drives if you leave it blank
+   - Shows each file's name, path, and size in MB
+
+3. Remove all `$RECYCLE.BIN` folders
+   - Deletes the Recycle Bin folders from all detected drives
+   - Prompts for confirmation before doing so
+
+4. Exit
+   - Closes the script
+
+## How it works
+
+The script uses Windows Management Instrumentation (WMI/CIM) to enumerate logical disks via `Get-CimInstance -ClassName Win32_LogicalDisk`. For each disk, it checks whether a `$RECYCLE.BIN` directory exists and operates on it as needed.
 
 ## Run
 
