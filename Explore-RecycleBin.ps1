@@ -129,7 +129,7 @@ do {
 
             $confirmDelete = Read-Host "Confirm deletion (y) ($confirmDeleteTarget)"
             if ($confirmDelete -eq 'y') {
-                Get-LogicalDiskRecycleBin -Drives $drives | Remove-Item -Recurse -Force
+                Get-LogicalDiskRecycleBin -Drives $drives | Remove-Item -Recurse:$param.RecurseDelete -Force
             }
             Write-Host ''
         }
